@@ -132,3 +132,6 @@ dmypy.json
 output/
 *.npy
 *.csv
+
+# GGD: emacs
+*~
