@@ -1,1 +1,11 @@
-# lighting-tech-changeover
+# Hyperspectral Observations of Lighting Technology Changeover
+
+*Project Team: Lan Yu [1], Federica B Bianco [1,2], Andreas Karpf[2], Mohit S Sharma[2], Gregory Dobler [1,2]*
+
+*[1] - University of Delaware*
+
+*[2] - Center for Urban Science and Progress (New York University)*
+
+---
+
+PROJECT DESCRIPTION.
