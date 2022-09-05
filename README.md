@@ -23,6 +23,10 @@ Meanwhile, researchers believe that public policies, such as tax rebates, subsid
 In this research, using empirical measurements of lighting technology use via time-dependent images of the Manhattan skyline, we will show the changeover from energy inefficient to energy-efficient lighting and the proliferation of LED.
 
 
-The hyperspectral imaging data used in this work was obtained by the “Urban
-Observatory” (UO) facility in New York City (NYC). This VNIR instrument
-observation is located in downtown Brooklyn and faces north. Two night-time hyper-spectral images (one from the 2015 and the other from the 2018) of NYC have been used to identify and type lighting technologies. 
+The hyperspectral imaging data used in this work was obtained by the “Urban Observatory” (UO) facility in New York City (NYC). This VNIR instrument observation is located in downtown Brooklyn and faces north. Images below showed the camera and our research area's daytime image. 
+![camera_image](https://github.com/gdobler/lighting-tech-changeover/blob/main/images/camera.png)
+![daytime_image](https://github.com/gdobler/lighting-tech-changeover/blob/main/images/daytime.png)
+
+
+
+Two night-time hyper-spectral images (one from the 2015 and the other from the 2018) of NYC have been used to identify and type lighting technologies. 
