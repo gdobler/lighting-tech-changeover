@@ -28,7 +28,7 @@ This repository collects the data analysis pipeline for this project, in the dir
 The steps of the pipeline, and the codes that perform them, are as follow.
 
 
-The hyperspectral imaging data used in this work was obtained by the “Urban Observatory” (UO) facility in New York City (NYC). This VNIR instrument observation is located in downtown Brooklyn and faces north. Images below showed the camera and our research area's daytime image. 
+The hyperspectral imaging data used in this work was obtained by the “[Urban Observatory](http://MUONetwork.org)” (UO) facility in New York City (NYC). This VNIR instrument observation is located in downtown Brooklyn and faces north. Images below showed the camera and our research area's daytime image. 
 
 ![camera_image](https://github.com/gdobler/lighting-tech-changeover/blob/main/images/camera.png)
 ![daytime_image](https://github.com/gdobler/lighting-tech-changeover/blob/main/images/daytime.png)
