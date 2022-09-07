@@ -36,3 +36,17 @@ The hyperspectral imaging data used in this work was obtained by the “[Urban O
 
 
 Two night-time hyper-spectral images (one from the 2015 and the other from the 2018) of NYC have been used to identify and type lighting technologies. 
+
+The steps of the pipeline, and the codes that perform them, are as follow.
+
+The first step is to process the data. There are two hyperspectral scans that need to be cleaned. HSI0(2015) has a raw image of 4.05GB while HSI1(2018) has an image of 8.07GB. After applying 20 times 3-sigma clipping and a Gaussian filter to both images, the clean image was created. A minimum of xxx GB is needed for cleaning xxx. Below are the cleaned scans of both images. 
+
+In the event that you are unable to process it, you can use the cleaned image data: xxx.npy. 
+
+
+As these two scans are taken by different instruments, and the detector in 2018 is able to capture more faint sources than the detector in 2015, there may be a bias in the resultant images. The increased number of "active" pixels in the 2018 scan can be attributed to a more sensitive sensor. To correct this, two steps are taken. Initially, it was thought that two scans would be aligned and could be compared source by source. We use the Manhattan Bridge as the template and we resize the 2018 scan and then select the overlapping area in the 2015 scan. From the image below, it is evident that two scans cannot be perfectly aligned. While the left side of the Manhattan Bridge necklace lights have been aligned, the right side and Empire State Building remain misaligned. In addition, determining a single source’s affiliation is difficult as some sources may become inactive or disappear over time. 
+
+Although we cannot resolve the mismatch issue, we can still compare the sources and examine the changes in lighting technologies. Therefore, by adding a Gaussian nosie to the 2018 scan, we will correct the sensor sensitivity difference between the two image. 
+
+The sensor sensitivity correction code is stored in xxx.npy and the overlapping area in both scans(after sensor sensitivity correction) are stored in: xxx.npy.
+
