@@ -50,3 +50,4 @@ Although we cannot resolve the mismatch issue, we can still compare the sources 
 
 The sensor sensitivity correction code is stored in xxx.npy and the overlapping area in both scans(after sensor sensitivity correction) are stored in: xxx.npy.
 
+The next step in the data processing process is to manually select the sources and label them with the names of the lighting technologies in each image. We start by combining the mean brightness and location of each "active" pixel. We then plotted the distribution of pixels' average brightnesses and divided the distribution into 10 chunks with intervals of 0.7. Finally, we manually selected, identified, and labeled the "active" pixels in each chunk. A similar process is also followed for the 2018 scan. We ended up with 713 hand-labeled sources in the 2015 scan and 616 sources in the 2018 scan. 
