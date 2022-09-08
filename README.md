@@ -39,15 +39,26 @@ Two night-time hyper-spectral images (one from the 2015 and the other from the 2
 
 The steps of the pipeline, and the codes that perform them, are as follow.
 
-The first step is to process the data. There are two hyperspectral scans that need to be cleaned. HSI0(2015) has a raw image of 4.05GB while HSI1(2018) has an image of 8.07GB. After applying 20 times 3-sigma clipping and a Gaussian filter to both images, the clean image was created. A minimum of xxx GB is needed for cleaning xxx. Below are the cleaned scans of both images. 
+The first step is to process the data. There are two hyperspectral scans that need to be cleaned. HSI0(2015) has a raw image of 4.05GB while HSI1(2018) has an image of 8.07GB. After applying 20 times 3-sigma clipping and a Gaussian filter to both images, the clean image was created. A minimum of xxx GB is needed for cleaning xxx. Below are the cleaned scans of both images.
 
-In the event that you are unable to process it, you can use the cleaned image data: xxx.npy. 
+In the event that you are unable to process it, you can use the cleaned image data: xxx.npy.
 
+As these two scans are taken by different instruments, and the detector in 2018 is able to capture more faint sources than the detector in 2015, there may be a bias in the resultant images. The increased number of "active" pixels in the 2018 scan can be attributed to a more sensitive sensor. To correct this, two steps are taken. Initially, we think that two scans would be aligned and could be compared source by source. We use the Manhattan Bridge as the template, resizing the 2018 scan and then selecting the overlapping area in the 2015 scan. However, from the image below, it is evident that two scans cannot be perfectly aligned. While the left side of the Manhattan Bridge necklace lights have been aligned, the right side and Empire State Building remain misaligned. In addition, determining a single source’s affiliation is difficult as some sources may become inactive or disappear over time.
 
-As these two scans are taken by different instruments, and the detector in 2018 is able to capture more faint sources than the detector in 2015, there may be a bias in the resultant images. The increased number of "active" pixels in the 2018 scan can be attributed to a more sensitive sensor. To correct this, two steps are taken. Initially, it was thought that two scans would be aligned and could be compared source by source. We use the Manhattan Bridge as the template and we resize the 2018 scan and then select the overlapping area in the 2015 scan. From the image below, it is evident that two scans cannot be perfectly aligned. While the left side of the Manhattan Bridge necklace lights have been aligned, the right side and Empire State Building remain misaligned. In addition, determining a single source’s affiliation is difficult as some sources may become inactive or disappear over time. 
-
-Although we cannot resolve the mismatch issue, we can still compare the sources and examine the changes in lighting technologies. Therefore, by adding a Gaussian nosie to the 2018 scan, we will correct the sensor sensitivity difference between the two image. 
+Although we cannot resolve the mismatch issue, we can still compare the sources and examine the changes in lighting technologies. Therefore, by adding a Gaussian nosie to the 2018 scan, we can correct the sensor sensitivity difference between the two images.
 
 The sensor sensitivity correction code is stored in xxx.npy and the overlapping area in both scans(after sensor sensitivity correction) are stored in: xxx.npy.
 
-The next step in the data processing process is to manually select the sources and label them with the names of the lighting technologies in each image. We start by combining the mean brightness and location of each "active" pixel. We then plotted the distribution of pixels' average brightnesses and divided the distribution into 10 chunks with intervals of 0.7. Finally, we manually selected, identified, and labeled the "active" pixels in each chunk. A similar process is also followed for the 2018 scan. We ended up with 713 hand-labeled sources in the 2015 scan and 616 sources in the 2018 scan. 
+
+
+Next, we need to manually select the sources and label them with the names of the lighting technologies in each image. We begin by combining the mean brightness and location of each "active" pixel. Next, we plotted the distribution of pixels' average brightnesses and divided it into 10 chunks with intervals of 0.7. We then manually selected, identified, and labeled the "active" pixels in each chunk. Due to the fact that our lighting templates cannot include every lighting technology on the market, and some sources with low signal-to-noise cannot be identified. For these spectra, we add a class called "unknown".
+
+In the end, we ended up with 713 hand-labeled sources in the 2015 scan and 616 sources in the 2018 scan. Labeled sources and its location is stored in xxx.npy.
+
+
+To identify lighting technologies in each image, we applied web scrapping techniques (using Beautiful Soup) to collect templates from lighting databases (The National Oceanic and Atmospheric Administration (NOAA) and Lamp Spectral Power Distribution Database (LSPDD)). Using auto-correlation, we prune the templates by hand to represent the minimal set required for technology separation, as Dobler et al., (2016) did.
+
+The following are our final 20 templates:
+
+
+You can now build the model and print the lighting technologies in both scans. The first method we use here is the coefficient method. We calculate the correlation between pixels' spectra in our two scans and all lab measured templates. With the highest correlation among these templates and keeping the sources that are positively correlated with our templates, we will be able to print both images with active pixels accompanied by their associated lighting types.
