@@ -41,7 +41,7 @@ Two night-time hyper-spectral images (one from the 2015 and the other from the 2
 The steps of the pipeline, and the codes that perform them, are as follow.
 
 The first step is to process the data. There are two hyperspectral scans that need to be cleaned. HSI0(2015) has a raw image of 4.05GB while HSI1(2018) has an image of 8.07GB. 
-![raw_image](https://github.com/gdobler/lighting-tech-changeover/blob/main/images/Raw_Total_Intensity_2std.png)
+![raw_image](https://github.com/gdobler/lighting-tech-changeover/blob/main/images/Raw_Total_intensity_2std.png)
 
 After applying 20 times 3-sigma clipping and a Gaussian filter to both images, the clean image was created. A minimum of xxx GB is needed for cleaning xxx. Below are the cleaned scans of both images.
 ![cleaned_image](https://github.com/gdobler/lighting-tech-changeover/blob/main/images/Cleaned_Total_Intensity.png)
@@ -72,16 +72,16 @@ Next, we need to manually select the sources and label them with the names of th
 
 In the end, we ended up with 713 hand-labeled sources in the 2015 scan and 616 sources in the 2018 scan. Labeled sources and its location is stored in xxx.npy.
 
-![example_spectra]https://github.com/gdobler/lighting-tech-changeover/blob/main/images/example_spectra.png)
+![example_spectra](https://github.com/gdobler/lighting-tech-changeover/blob/main/images/example_spectra.png)
 
 
 To identify lighting technologies in each image, we applied web scrapping techniques (using Beautiful Soup) to collect templates from lighting databases (The National Oceanic and Atmospheric Administration (NOAA) and Lamp Spectral Power Distribution Database (LSPDD)).
 
-![autocorrelation]https://github.com/gdobler/lighting-tech-changeover/blob/main/images/NOAA_LSPDD_spec_seperate.png)
+![autocorrelation](https://github.com/gdobler/lighting-tech-changeover/blob/main/images/NOAA_LSPDD_spec_seperate.png)
 
 Using auto-correlation, we prune the templates by hand to represent the minimal set required for technology separation, as Dobler et al., (2016) did.
 
-![autocorrelation]https://github.com/gdobler/lighting-tech-changeover/blob/main/images/NOAA_and_LSPDD_autocorrelation_coefficients.png)
+![autocorrelation](https://github.com/gdobler/lighting-tech-changeover/blob/main/images/NOAA_and_LSPDD_autocorrelation_coefficients.png)
 
 
 The following are our final 20 templates:
