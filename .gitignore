@@ -130,6 +130,7 @@ dmypy.json
 
 # GGD: output and data files
 output/
+data/
 *.npy
 *.csv
 
