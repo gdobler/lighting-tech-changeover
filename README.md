@@ -10,7 +10,7 @@
 <br>
   <small>[3] - Department of Physics and Astronomy, University of Delaware, Newark DE, 19716, USA </small>
 <br>
-  <small>[4] - Data Science Institute, University of Delaware, Newark DE, 19716, USA7 </small>
+  <small>[4] - Data Science Institute, University of Delaware, Newark DE, 19716, USA </small>
 </i>
 
 ---
