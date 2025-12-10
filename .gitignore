@@ -133,7 +133,7 @@ output/
 data/
 output
 misc
-*.npy
+# *.npy
 *.csv
 
 # GGD: emacs
